@@ -36,7 +36,7 @@ func main() {
 	}
 
 	b.Handle("/start", func(c tele.Context) error {
-		return menu.Menu(c,b, "Добро пожаловать для продолжения пройдите регистрацию!")
+		return menu.Menu(c,b, "Добро пожаловать! Чтобы вам начали приходить уведомления, необходимо пройти регистрацию.")
 	})
 	// Создаем роутер
 	r := chi.NewRouter()
@@ -73,7 +73,7 @@ func main() {
 	// Запускаем сервер в отдельной горутине
 	go func() {
 		log.Println("Server started at :8081")
-		log.Fatal(http.ListenAndServe(":8081", r))
+		log.Fatal(http.ListenAndServe("localhost:8081", r))
 	}()
 
 	log.Println("Бот запущен...")
